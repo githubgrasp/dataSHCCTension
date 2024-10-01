@@ -1,0 +1,62 @@
+# t3d -d 0.02 -p 8 -i mesh.in -o mesh.out
+
+# bottom vertices
+vertex 1 xyz 0.0 0.0 0.0
+vertex 2 xyz 0.128 0.0 0.0
+vertex 3 xyz 0.128 0.128 0.0
+vertex 4 xyz 0.0 0.128 0.0
+
+# top vertices
+vertex 5 xyz 0.0 0.0 1.04
+vertex 6 xyz 0.128 0.0 1.04
+vertex 7 xyz 0.128 0.128 1.04
+vertex 8 xyz 0.0 0.128 1.04
+
+
+# control vertices at the bottom
+vertex 9 xyz 0.064 0.064 0.0
+
+# control vertices at the top
+
+vertex 10 xyz 0.064 0.064 1.04
+
+
+#bottom curves
+curve 1 order 2 vertex 1 2
+curve 2 order 2 vertex 2 3
+curve 3 order 2 vertex 3 4
+curve 4 order 2 vertex 4 1
+
+#top curves
+curve 5 order 2 vertex 5 6
+curve 6 order 2 vertex 6 7
+curve 7 order 2 vertex 7 8
+curve 8 order 2 vertex 8 5
+
+#vertical curves
+curve 9 order 2 vertex 1 5
+curve 10 order 2 vertex 2 6
+curve 11 order 2 vertex 3 7
+curve 12 order 2 vertex 4 8
+
+#curve in the center
+curve 13 order 2 vertex 9 10 output yes
+
+
+
+#facets
+#bottom
+patch 1 normal 0 0 1 boundary curve 1 2 3 4
+#top
+patch 2 normal 0 0 1 boundary curve 5 6 7 8
+#front
+patch 3 normal 0 -1 0 boundary curve 1 10 -5 -9
+#back
+patch 4 normal 0 -1 0 boundary curve -3 11 7 -12
+#left
+patch 5 normal 1 0 0 boundary curve -4 12 8 -9
+#right
+patch 6 normal 1 0 0 boundary curve 2 11 -6 -10
+
+#region
+region 1 boundary patch -1 2 3 -4 -5 6 size def

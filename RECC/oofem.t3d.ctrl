@@ -1,0 +1,50 @@
+oofem.out
+Reinforced prism
+NonLinearStatic nmsteps 1  nmodules 2 nsteps 1 profileopt 1 contextOutputStep 1000 lstype 4 smtype 8
+nsteps 600 rtolf 1.e-3 stiffMode 2 maxiter 4000 controllmode 1 donotfixload manrmsteps 1 lstype 4 smtype 8
+vtkxml primvars 1 1 cellvars 8 1 2 4 5 13 27 28 46 tstep_step 1 domain_all 
+gpexportModule 1 tstep_step 1 domain all ncoords 3 vars 3 1 4 46
+domain 3d
+OutputManager tstep_all dofman_output { 9 10 }
+ncrosssect 3 nmat 3 nbc 2 nic 0 nltf 2
+SimpleCS 1 
+FiberedCS 2 fibermaterials 16 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 thicks 16 4.000000e-03 4.000000e-03 4.000000e-03 4.000000e-03 2.000000e-03 4.000000e-03 4.000000e-03 2.000000e-03 4.000000e-03 4.000000e-03 4.000000e-03 4.000000e-03 2.000000e-03 4.000000e-03 4.000000e-03 2.000000e-03 widths 16 4.000000e-03 4.000000e-03 4.000000e-03 4.000000e-03 2.000000e-03 4.000000e-03 4.000000e-03 2.000000e-03 4.000000e-03 4.000000e-03 4.000000e-03 4.000000e-03 2.000000e-03 4.000000e-03 4.000000e-03 2.000000e-03 thick 1.600000e-02 width 1.600000e-02 fiberycentrecoords 16 6.000000e-03 2.000000e-03 -2.000000e-03 -6.000000e-03 5.000000e-03 2.000000e-03 -2.000000e-03 -5.000000e-03 6.000000e-03 2.000000e-03 -2.000000e-03 -6.000000e-03 5.000000e-03 2.000000e-03 -2.000000e-03 -5.000000e-03 fiberzcentrecoords 16 -2.000000e-03 -2.000000e-03 -2.000000e-03 -2.000000e-03 -5.000000e-03 -6.000000e-03 -6.000000e-03 -5.000000e-03 2.000000e-03 2.000000e-03 2.000000e-03 2.000000e-03 5.000000e-03 6.000000e-03 6.000000e-03 5.000000e-03
+FiberedCS 3 fibermaterials 16 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 thicks 16 4.000000e-03 4.000000e-03 4.000000e-03 4.000000e-03 2.000000e-03 4.000000e-03 4.000000e-03 2.000000e-03 4.000000e-03 4.000000e-03 4.000000e-03 4.000000e-03 2.000000e-03 4.000000e-03 4.000000e-03 2.000000e-03 widths 16 4.000000e-03 4.000000e-03 4.000000e-03 4.000000e-03 2.000000e-03 4.000000e-03 4.000000e-03 2.000000e-03 4.000000e-03 4.000000e-03 4.000000e-03 4.000000e-03 2.000000e-03 4.000000e-03 4.000000e-03 2.000000e-03 thick 1.600000e-02 width 1.600000e-02 fiberycentrecoords 16 6.000000e-03 2.000000e-03 -2.000000e-03 -6.000000e-03 5.000000e-03 2.000000e-03 -2.000000e-03 -5.000000e-03 6.000000e-03 2.000000e-03 -2.000000e-03 -6.000000e-03 5.000000e-03 2.000000e-03 -2.000000e-03 -5.000000e-03 fiberzcentrecoords 16 -2.000000e-03 -2.000000e-03 -2.000000e-03 -2.000000e-03 -5.000000e-03 -6.000000e-03 -6.000000e-03 -5.000000e-03 2.000000e-03 2.000000e-03 2.000000e-03 2.000000e-03 5.000000e-03 6.000000e-03 6.000000e-03 5.000000e-03
+cdpm2f 1 d 0. talpha 0. stype 2 E 20.e9 n 0.2 ft 2.9e6 fc 54.e6 wf 1.e-5 ef 43.e9 lf 12.7e-3 vf0 0.02 df 40.e-6 beta 0.02 f 0.9 tau0 5.e5 sm 0.1 hp 0.01 alpha 0.9
+MisesMat 2 d 7.8e3 tAlpha 0.0 E 210.0e9 n 0.2 htype 1 h_eps 10 0. 0.013 0.027 0.040 0.064 0.097 0.150 0.155 0.16 1.0 h(eps) 10 448.0e6 448.0e6 512.0e6 544.0e6 574.0e6 591.0e6 597.0e6 298.5e6 0.001 0.001
+MisesMat 3 d 7.8e3 tAlpha 0.0 E 410.0e9 n 0.2 htype 1 h_eps 10 0. 0.013 0.027 0.040 0.064 0.097 0.150 0.155 0.16 1.0 h(eps) 10 848.0e6 848.0e6 912.0e6 944.0e6 974.0e6 991.0e6 997.0e6 498.5e6 0.001 0.001
+BoundaryCondition  1 loadTimeFunction 1 prescribedvalue 0.0 
+BoundaryCondition  2 loadTimeFunction 2 valType 6 prescribedvalue 0.06 
+ConstantFunction 1 f(t) 1.0  
+PiecewiseLinFunction 2 t 2 0. 600. f(t) 2 0.0 1.0
+
+region 1
+elemprop crossSect 1 mat 1 
+tetratype ltrspace
+
+curve 13
+nodetype hangingnode
+elemprop crossSect 2 mat 2 refnode 1
+edgetype libeam3d
+nodeprop doftype 3 2 2 2 
+
+vertex 9
+nodeprop bc 3 1 1 1
+
+vertex 10
+nodeprop bc 3 1 1 2
+ 
+
+
+###### Used for Extractor
+###
+#%BEGIN_CHECK%
+#DOFMAN  number 10 dof 3 type d 
+#REACTION number 9 dof 3
+#%END_CHECK%
+
+#Explicit dynamic loading
+#NlDEIDynamic nsteps 1000000 contextOutputStep 1000000 dumpcoef 0. deltat 0.0000001 profileopt 1
+#Incremental-iterative static analysis 
+#NonLinearStatic nmsteps 1 nsteps 1 profileopt 1  nmodules 1 contextOutputStep 1000
+#nsteps 200 rtolf 1.e-3 stiffMode 0 maxiter 1000 controllmode 1 donotfixload manrmsteps 1§.
